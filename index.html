@@ -309,41 +309,213 @@
     </div>
 
     <div class="container-fluid mt-3 mb-4">
-
         <div class="card shadow-sm border-primary position-relative">
-
             <div class="card-body p-3 p-md-4">
-
                 <img src="https://lh5.googleusercontent.com/d/1fo0zr7v4H4EPKYyS8nK_a6MDawQ1oBS4" alt="แบนเนอร์โรงเรียน"
                     id="schoolBanner" class="img-fluid rounded">
-                <div class="container text-center my-3 main-nav btn-group shadow-sm flex-wrap" role="group"
-                    aria-label="Main Navigation"> <button type="button" class="btn btn-outline-primary active"
-                        data-target="homePage">
-                        <i class="fas fa-home me-1"></i> หน้าแรก
-                    </button>
-                    <button type="button" class="btn btn-outline-primary" data-target="dashboardPage">
-                        <i class="fas fa-tachometer-alt me-1"></i> Dashboard
-                    </button>
-                    <button type="button" class="btn btn-outline-primary" data-target="checkinPage">
-                        <i class="fas fa-edit me-1"></i> บันทึกข้อมูล
-                    </button>
-                    <button type="button" class="btn btn-outline-primary" data-target="searchPage">
-                        <i class="fas fa-search me-1"></i> ค้นหาสถิติ
-                    </button>
+                <div class="container-fluid text-center my-1 mb-2 main-nav btn-group shadow-sm flex-wrap" role="group"
+                    aria-label="Main Navigation">
+                    <div class="col mb-2">
+                        <button type="button" class="btn btn-outline-primary active mt-1 mb-1" data-target="homePage">
+                            <i class="fas fa-home me-1"></i> หน้าแรก
+                        </button>
+                        <button type="button" class="btn btn-outline-primary mt-1 mb-1" data-target="dashboardPage">
+                            <i class="fas fa-tachometer-alt me-1"></i> Dashboard
+                        </button>
+                        <button type="button" class="btn btn-outline-primary mt-1 mb-1" data-target="checkinPage">
+                            <i class="fas fa-edit me-1"></i> บันทึกข้อมูล
+                        </button>
+                        <button type="button" class="btn btn-outline-primary mt-1 mb-1" data-target="searchPage">
+                            <i class="fas fa-search me-1"></i> ค้นหาสถิติ
+                        </button>
+                        <button type="button" class="btn btn-outline-primary mt-1 mb-1" data-bs-toggle="modal"
+                            data-bs-target="#loginProfileModal">
+                            <i class="fas fa-user-edit me-1"></i> แก้ไขข้อมูลส่วนตัว
+                        </button>
+                    </div>
                 </div>
+
+                <!-- ///modal แก้ไขข้อมูลส่วนตัว ///-->
+                <div class="modal fade" id="loginProfileModal" tabindex="-1" aria-labelledby="loginProfileModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="loginProfileModalLabel"><i
+                                        class="fas fa-sign-in-alt me-2"></i> เข้าสู่ระบบเพื่อแก้ไขข้อมูลส่วนตัว</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="profileLoginForm">
+                                    <div class="mb-3">
+                                        <label for="profileLoginPhone" class="form-label"><i
+                                                class="fas fa-phone me-2"></i> หมายเลขโทรศัพท์ (ชื่อผู้ใช้)</label>
+                                        <input type="tel" class="form-control" id="profileLoginPhone"
+                                            name="profileLoginPhone" required placeholder="กรอกหมายเลขโทรศัพท์">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="profileLoginPassword" class="form-label"><i
+                                                class="fas fa-key me-2"></i> รหัสครูผู้สอน (รหัสผ่าน)</label>
+                                        <input type="password" class="form-control" id="profileLoginPassword"
+                                            name="profileLoginPassword" required placeholder="กรอกรหัสครูผู้สอน">
+                                    </div>
+                                    <div class="d-grid">
+                                        <button type="submit" class="btn btn-primary"><i
+                                                class="fas fa-sign-in-alt me-1"></i> เข้าสู่ระบบ</button>
+                                    </div>
+                                </form>
+                                <div class="text-center mt-3">
+                                    <!--<a href="#" id="forgotPasswordLink" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal" data-bs-dismiss="modal">ลืมรหัสผ่าน?</a>-->
+                                    <a style="color:#1702f7;cursor:pointer" target="_blank"
+                                        href="https://line.me/ti/p/3F7VGrqgUr"><i
+                                            class="fa-solid fa-user-tie fa-beat"></i> ลืมรหัสผ่านติดต่อ อ.ธนสาร
+                                        สีรักษ์</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="forgotPasswordModal" tabindex="-1"
+                    aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="forgotPasswordModalLabel"><i
+                                        class="fas fa-question-circle me-2"></i> แจ้งลืมรหัสผ่าน</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="forgotPasswordForm">
+                                    <div class="mb-3">
+                                        <label for="forgotPasswordEmail" class="form-label"><i
+                                                class="fas fa-envelope me-2"></i> อีเมลที่ลงทะเบียนไว้</label>
+                                        <input type="email" class="form-control" id="forgotPasswordEmail"
+                                            name="forgotPasswordEmail" required placeholder="กรอกอีเมลของคุณ">
+                                    </div>
+                                    <div class="d-grid">
+                                        <button type="submit" class="btn btn-warning"><i
+                                                class="fas fa-paper-plane me-1"></i> ส่งคำขอ</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="editProfileDataModal" tabindex="-1"
+                    aria-labelledby="editProfileDataModalLabel" aria-hidden="true" data-bs-backdrop="static"
+                    data-bs-keyboard="false">
+                    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="editProfileDataModalLabel"><i
+                                        class="fas fa-user-cog me-2"></i> แก้ไขข้อมูลส่วนตัว</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                                    id="closeEditProfileModal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="editProfileForm" enctype="multipart/form-data">
+                                    <input type="hidden" id="editTeacherId" name="teacherId">
+                                    <div class="row">
+                                        <div class="col-md-4 text-center mb-3">
+                                            <img src="https://placehold.co/150x150/adb5bd/ffffff?text=Profile"
+                                                alt="รูปโปรไฟล์" id="editProfileImagePreview" class="img-thumbnail mb-2"
+                                                style="width: 150px; height: 150px; object-fit: cover;">
+                                            <input type="file" class="form-control form-control-sm"
+                                                id="editProfileImage" name="profileImage" accept="image/*">
+                                            <small class="form-text text-muted">เลือกรูปโปรไฟล์ใหม่ (ถ้าต้องการ)</small>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="editProfileFirstName" class="form-label">ชื่อ</label><a
+                                                        helf="#" style="color:#f72302;font-size: 14px;"> *</a>
+                                                    <input type="text" class="form-control" id="editProfileFirstName"
+                                                        name="firstName" disabled>
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <label for="editProfileLastName" class="form-label">สกุล</label><a
+                                                        helf="#" style="color:#f72302;font-size: 14px;"> *</a>
+                                                    <input type="text" class="form-control" id="editProfileLastName"
+                                                        name="lastName" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="editProfileDepartment"
+                                                    class="form-label">กลุ่มสาระการเรียนรู้</label><a helf="#"
+                                                    style="color:#f72302;font-size: 14px;"> *</a>
+                                                <input type="text" class="form-control" id="editProfileDepartment"
+                                                    name="department" disabled>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="editProfileLevel" class="form-label">ระดับ (เช่น ม.1,
+                                                    ม.ปลาย)</label><a helf="#" style="color:#f72302;font-size: 14px;">
+                                                    *</a>
+                                                <input type="text" class="form-control" id="editProfileLevel"
+                                                    name="level">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <h6 class="mb-3">ข้อมูลการเข้าสู่ระบบและความปลอดภัย</h6>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="editProfilePhone" class="form-label">หมายเลขโทรศัพท์
+                                                (ชื่อผู้ใช้)</label><a helf="#" style="color:#f72302;font-size: 14px;">
+                                                *</a>
+                                            <input type="tel" class="form-control" id="editProfilePhone"
+                                                name="phoneNumber" required>
+                                        </div>
+                                        <div class="col-md-6 mb-3 style=">
+                                            <label for="editProfilePassword" class="form-label">รหัสผ่านใหม่
+                                                (รหัสครูผู้สอน ตัวเลข 4 ตัว)</label><a helf="#"
+                                                style="color:#f72302;font-size: 14px;"> *</a>
+                                            <input type="password" class="form-control" id="editProfilePassword"
+                                                name="newPassword" placeholder="เปลี่ยนรหัสผ่านติดต่อ ADMIN"
+                                                maxlength="4" inputmode="numeric" pattern="[0-9]*" disabled>
+                                            <!--<small class="form-text text-muted">ต้องการเปลี่ยนรหัสผ่านติดต่อ ADMIN</small>-->
+                                            <a style="color:#1702f7;cursor:pointer;font-size: 14px;" target="_blank"
+                                                href="https://line.me/ti/p/3F7VGrqgUr"><i
+                                                    class="fa-solid fa-user-tie fa-beat"></i>
+                                                ต้องการเปลี่ยนรหัสผ่านติดต่อ อ.ธนสาร สีรักษ์</a>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="editProfileEmail" class="form-label">อีเมล</label><a helf="#"
+                                            style="color:#f72302;font-size: 14px;"> *</a>
+                                        <input type="email" class="form-control" id="editProfileEmail" name="email"
+                                            placeholder="กรอก email " required>
+                                    </div>
+                                    <div class="d-grid mt-4">
+                                        <button type="submit" class="btn btn-success btn-lg"><i
+                                                class="fas fa-save me-1"></i> บันทึกการเปลี่ยนแปลง</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ///สิ้นสุด modal แก้ไขข้อมูลส่วนตัว ///-->
+
+
 
 
                 <div id="homePage" class="page-section active">
 
                     <div class="container-fluid mt-0 mb-1 bg-light">
-                        <marquee behavior="scroll" direction="left" style="color:	#000000; font-size: 18px;mt-2 mb-2"
+                        <marquee behavior="scroll" direction="left" style="color:	#000000; font-size: 16px;mt-2 mb-2"
                             onmouseover="this.stop();" onmouseout="this.start();">
                             <h6 style="mt-2">
-                                <h5><img src="https://lh5.googleusercontent.com/d/1cD2nVKNscJg1DJPnkaakah7Nz4ez_BZS"
-                                        height="12" width="25"> ยินดีต้อนรับเข้าสู่ระบบลงเวลาครูเวรประจำวัน
-                                    โรงเรียนปากช่อง :: ออกแบบและพัฒนาโดย KT | Tanasarn Sirak <img
-                                        src="https://lh5.googleusercontent.com/d/1cD2nVKNscJg1DJPnkaakah7Nz4ez_BZS"
-                                        height="12" width="25"></h5>
+                                <h5><small><img
+                                            src="https://lh5.googleusercontent.com/d/1cD2nVKNscJg1DJPnkaakah7Nz4ez_BZS"
+                                            height="12" width="25">
+                                        ยินดีต้อนรับเข้าสู่ระบบลงเวลาครูที่ปรึกษาและครูเวรประจำวัน โรงเรียนปากช่อง ::
+                                        ออกแบบและพัฒนาโดย KT | Tanasarn Sirak <img
+                                            src="https://lh5.googleusercontent.com/d/1cD2nVKNscJg1DJPnkaakah7Nz4ez_BZS"
+                                            height="12" width="25"></small></h5>
                         </marquee>
                     </div>
 
@@ -396,8 +568,8 @@
                                         </div>
                                 </div>
                             </div>
-                        </div> -->
-                        <hr>
+                        </div>
+                        <hr> -->
 
                         <div class="text-center my-4"> <button type="button"
                                 class="btn btn-success btn-lg mx-2 mb-2 me-2" id="goToAttendanceBtn">
@@ -432,9 +604,9 @@
                         <div class="col-md-4">
                             <div class="card text-white bg-success shadow-sm h-100">
                                 <div class="card-body p-2">
-                                    <h6 class="card-title"><i class="fas fa-users me-1"></i> ครูบันทึกข้อมูล</h6>
+                                    <h6 class="card-title"><i class="fas fa-users me-1"></i> ครูมาปฏิบัติหน้าที่</h6>
                                     <p class="card-text" id="loggedTodayCount">0 / 0</p>
-                                    <small class="card-text-small">(บันทึกวันนี้ / ทั้งหมด)</small>
+                                    <small class="card-text-small">(บันทึกวันนี้ / ครูทั้งหมด)</small>
                                 </div>
                             </div>
                         </div>
@@ -458,7 +630,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="card text-white bg-primary shadow-sm h-100">
                                 <div class="card-body p-2">
                                     <h6 class="card-title text-white"><i class="fas fa-chalkboard-teacher me-1"></i>
@@ -468,7 +640,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="card text-white bg-secondary shadow-sm h-100">
                                 <div class="card-body p-2">
                                     <h6 class="card-title text-white"><i class="fas fa-users-cog me-1"></i>
@@ -479,7 +651,19 @@
                             </div>
                         </div>
 
+                        <div class="col-md-4">
+                            <div class="card text-black bg-info shadow-sm h-100">
+                                <div class="card-body p-2">
+                                    <h6 class="card-title text-black"><i class="fas fa-user-clock me-1"></i> ลา /
+                                        ไปราชการ</h6>
+                                    <p class="card-text text-black" id="leaveOrTripCount">0</p>
+                                    <small class="card-text-small text-black">(คน - วันนี้)</small>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
+
                     <div class="row g-2 mb-3 align-items-center bg-light p-2 rounded border shadow-sm">
                         <div class="col-lg-3 col-md-6">
                             <label for="dashboardDateFilter" class="form-label small mb-0">เลือกวันที่:</label>
@@ -562,7 +746,8 @@
                                             id="teacherName"></span></p>
                                     <p class="mb-1 small"><strong><i
                                                 class="fas fa-chalkboard-teacher fa-fw me-1"></i>กลุ่มสาระฯ:</strong>
-                                        <span id="teacherDepartment"></span></p>
+                                        <span id="teacherDepartment"></span>
+                                    </p>
                                     <p class="mb-0 small"><strong><i
                                                 class="fas fa-user-tie fa-fw me-1"></i>ตำแหน่ง:</strong> <span
                                             id="teacherPosition"></span></p>
@@ -842,7 +1027,7 @@
                 <footer class="footer mt-4 text-center">
                     <div class="container">
                         <a href="https://line.me/ti/p/3F7VGrqgUr" target="_blank"><i class="fa-solid fa-comments"></i>
-                            สอบถาม/แจ้งปัญหา</a> || ©️KT|Tanasarn Sirak (v1)
+                            สอบถาม/แจ้งปัญหา</a> || ©️KT|Tanasarn Sirak (v2)
                     </div>
                 </footer>
             </div>
@@ -876,8 +1061,234 @@
             }
         });
 
+        // ... #editProfile ...
+        const profileLoginForm = document.getElementById('profileLoginForm');
+        const forgotPasswordForm = document.getElementById('forgotPasswordForm');
+        const editProfileForm = document.getElementById('editProfileForm');
+        const editProfileImageInput = document.getElementById('editProfileImage');
+        const editProfileImagePreview = document.getElementById('editProfileImagePreview');
 
+        let currentEditingTeacherData = null; // เก็บข้อมูลครูที่กำลังแก้ไข
 
+        // --- Profile Login ---
+        if (profileLoginForm) {
+            profileLoginForm.addEventListener('submit', async function (event) {
+                event.preventDefault();
+                const phone = document.getElementById('profileLoginPhone').value;
+                const password = document.getElementById('profileLoginPassword').value;
+
+                if (!phone || !password) {
+                    showSweetAlert('warning', 'ข้อมูลไม่ครบถ้วน', 'กรุณากรอกหมายเลขโทรศัพท์และรหัสครูผู้สอน');
+                    return;
+                }
+
+                showLoading(true);
+                try {
+                    const formData = new FormData();
+                    formData.append('action', 'loginProfileEdit');
+                    formData.append('phoneNumber', phone);
+                    formData.append('teacherIdPassword', password); // รหัสครูคือรหัสผ่าน
+
+                    const response = await fetch(SCRIPT_URL, { method: 'POST', body: formData });
+                    const result = await response.json();
+
+                    if (result.status === 'success' && result.teacher) {
+                        currentEditingTeacherData = result.teacher;
+                        populateEditProfileForm(result.teacher);
+                        var loginModal = bootstrap.Modal.getInstance(document.getElementById('loginProfileModal'));
+                        loginModal.hide();
+                        var editModal = new bootstrap.Modal(document.getElementById('editProfileDataModal'));
+                        editModal.show();
+                    } else {
+                        showSweetAlert('error', 'เข้าสู่ระบบไม่สำเร็จ', result.message || 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง');
+                        //$(".modal-body input").val("");
+                    }
+                } catch (error) {
+                    console.error('Profile Login Error:', error);
+                    showSweetAlert('error', 'เกิดข้อผิดพลาด', 'ไม่สามารถเชื่อมต่อเซิร์ฟเวอร์ได้');
+                } finally {
+                    showLoading(false);
+                }
+                switchPage('homePage'); //ย้อนกลับไปหน้า dashboard
+            });
+
+        }
+
+        // --- Forgot Password ---
+        if (forgotPasswordForm) {
+
+            const emailValue = document.getElementById('forgotPasswordEmail').value;
+            const formData = new FormData();
+            formData.append('action', 'forgotPassword'); // ตรวจสอบว่า action ถูกต้อง
+            formData.append('email', emailValue);      // ตรวจสอบว่า email ถูก append และ emailValue มีค่า
+
+            console.log("Client-side FormData for forgot password:", Object.fromEntries(formData)); // Log FormData ที่จะส่ง
+            fetch(SCRIPT_URL, { method: 'POST', body: formData })
+
+            forgotPasswordForm.addEventListener('submit', async function (event) {
+                event.preventDefault();
+                const email = document.getElementById('forgotPasswordEmail').value;
+                if (!email) {
+                    showSweetAlert('warning', 'ข้อมูลไม่ครบถ้วน', 'กรุณากรอกอีเมล');
+                    return;
+                }
+                showLoading(true);
+                try {
+                    const formData = new FormData();
+                    formData.append('action', 'forgotPassword'); // <--- ตรวจสอบว่า action ถูกต้อง
+                    formData.append('email', email);             // <--- ตรวจสอบว่า email ถูกส่งไป
+
+                    console.log("Sending forgot password request for email:", email); // <--- เพิ่ม log เพื่อดูว่ามีการเรียกส่วนนี้หรือไม่
+
+                    const response = await fetch(SCRIPT_URL, { method: 'POST', body: formData });
+                    const result = await response.json();
+
+                    console.log("Forgot password response from server:", result); // <--- เพิ่ม log เพื่อดูผลลัพธ์จาก server
+
+                    if (result.status === 'success') {
+                        showSweetAlert('success', 'ส่งคำขอสำเร็จ', result.message || 'ระบบได้ส่งข้อมูลไปยังอีเมลของคุณแล้ว (หากอีเมลถูกต้องและมีในระบบ)');
+                        var forgotModal = bootstrap.Modal.getInstance(document.getElementById('forgotPasswordModal'));
+                        if (forgotModal) forgotModal.hide(); // ตรวจสอบว่า modal มีจริงก่อน hide
+                    } else {
+                        showSweetAlert('error', 'ส่งคำขอไม่สำเร็จ', result.message || 'ไม่พบอีเมลในระบบ หรือเกิดข้อผิดพลาด');
+                    }
+                } catch (error) {
+                    console.error('Forgot Password Error (Client-side):', error);
+                    showSweetAlert('error', 'เกิดข้อผิดพลาด', 'ไม่สามารถเชื่อมต่อเซิร์ฟเวอร์ได้');
+                } finally {
+                    showLoading(false);
+                }
+            });
+        }
+
+        // --- Populate Edit Profile Form ---
+        function populateEditProfileForm(teacher) {
+            if (!teacher) return;
+            document.getElementById('editTeacherId').value = teacher.id || '';
+            document.getElementById('editProfileFirstName').value = teacher.firstName || (teacher.name ? teacher.name.split(' ')[0] : '');
+            document.getElementById('editProfileLastName').value = teacher.lastName || (teacher.name ? teacher.name.split(' ').slice(1).join(' ') : '');
+            document.getElementById('editProfileDepartment').value = teacher.department || '';
+            document.getElementById('editProfileLevel').value = teacher.level || '';
+            document.getElementById('editProfilePhone').value = teacher.phoneNumber || document.getElementById('profileLoginPhone').value; // หรือดึงจาก teacher.id ถ้าใช้ id เป็น phone
+            document.getElementById('editProfileEmail').value = teacher.email || '';
+            document.getElementById('editProfilePassword').value = ""; // ไม่แสดงรหัสผ่านเดิม
+            //document.getElementById('editProfilePassword').value = teacher.password || document.getElementById('profileLoginPassword').value; // แสดงรหัสผ่านเดิม
+            editProfileImagePreview.src = teacher.photoUrl || 'https://placehold.co/150x150/adb5bd/ffffff?text=Profile';
+        }
+
+        // --- Profile Image Preview ---
+        if (editProfileImageInput) {
+            editProfileImageInput.addEventListener('change', function (event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        editProfileImagePreview.src = e.target.result;
+                    }
+                    reader.readAsDataURL(file);
+                }
+            });
+        }
+
+        // --- Edit Profile Submit ---
+        if (editProfileForm) {
+            editProfileForm.addEventListener('submit', async function (event) {
+                event.preventDefault();
+                showLoading(true);
+                const formData = new FormData(editProfileForm);
+                formData.append('action', 'updateProfile');
+
+                const imageFile = editProfileImageInput.files[0];
+
+                if (imageFile) {
+                    try {
+                        // แปลงไฟล์รูปภาพเป็น Base64 string
+                        const base64String = await new Promise((resolve, reject) => {
+                            const reader = new FileReader();
+                            reader.onload = () => resolve(reader.result.split(',')[1]); // เอาเฉพาะส่วนข้อมูล base64
+                            reader.onerror = error => reject(error);
+                            reader.readAsDataURL(imageFile);
+                        });
+                        formData.append('profileImageBase64', base64String);
+                        formData.append('profileImageFileName', imageFile.name);
+                        // ไม่จำเป็นต้องส่ง profileImage ที่เป็น File object อีกต่อไป ถ้า Apps Script คาดหวัง base64
+                        formData.delete('profileImage');
+
+                        await processUpdateProfile(formData); // เรียกฟังก์ชันที่แยกออกมา
+
+                    } catch (error) {
+                        console.error('Error reading file for profile update:', error);
+                        showSweetAlert('error', 'เกิดข้อผิดพลาด', 'ไม่สามารถอ่านไฟล์รูปภาพได้');
+                        showLoading(false);
+                    }
+                } else {
+                    // กรณีไม่ได้เลือกรูปใหม่ ให้ส่งค่าว่างไปเพื่อให้ Apps Script ไม่พยายามอัปเดตรูป
+                    formData.append('profileImageBase64', '');
+                    formData.append('profileImageFileName', '');
+                    if (formData.has('profileImage')) { // ตรวจสอบและลบถ้ามีอยู่
+                        formData.delete('profileImage');
+                    }
+                    await processUpdateProfile(formData); // เรียกฟังก์ชันที่แยกออกมา
+                }
+            });
+        }
+
+        // แยกส่วนการ fetch ออกมาเป็นฟังก์ชันใหม่
+        async function processUpdateProfile(formData) {
+            try {
+                const response = await fetch(SCRIPT_URL, { method: 'POST', body: formData });
+                const result = await response.json();
+
+                if (result.status === 'success') {
+                    showSweetAlert('success', 'บันทึกข้อมูลสำเร็จ', result.message || 'ข้อมูลส่วนตัวของคุณได้รับการอัปเดตแล้ว');
+                    var editModal = bootstrap.Modal.getInstance(document.getElementById('editProfileDataModal'));
+                    if (editModal) editModal.hide();
+
+                    // เคลียร์ค่า input file และ preview
+                    if (editProfileImageInput) editProfileImageInput.value = ''; // เคลียร์ไฟล์ที่เลือก
+                    if (editProfileImagePreview) editProfileImagePreview.src = 'https://placehold.co/150x150/adb5bd/ffffff?text=Profile'; // รีเซ็ตรูป preview
+
+                    const editedTeacherId = formData.get('teacherId');
+
+                    // อัปเดตข้อมูลหน้า Check-in (ถ้ากำลังแสดงข้อมูลครูคนนี้)
+                    if (teacherDataCache && teacherDataCache.id === editedTeacherId) {
+                        if (checkinPage.classList.contains('active') && teacherIdInput.value === editedTeacherId) {
+                            await fetchTeacherData(editedTeacherId); // จะอัปเดต teacherDataCache และ UI ที่เกี่ยวข้อง
+                        } else {
+                            teacherDataCache = null; // ทำให้โหลดใหม่ครั้งถัดไป
+                        }
+                    }
+
+                    // หากหน้า Dashboard เปิดอยู่ ให้โหลดข้อมูล Dashboard ใหม่
+                    if (dashboardPage.classList.contains('active')) {
+                        await loadDashboardData();
+                    }
+
+                    // หากหน้า Search Statistics เปิดอยู่และแสดงข้อมูลครูคนนี้ ให้ค้นหาใหม่
+                    if (searchPage.classList.contains('active') && searchTeacherIdInput.value === editedTeacherId) {
+                        await handleSearchStats();
+                    }
+
+                } else {
+                    showSweetAlert('error', 'บันทึกข้อมูลไม่สำเร็จ', result.message || 'เกิดข้อผิดพลาดในการอัปเดตข้อมูล');
+                }
+            } catch (error) {
+                console.error('Update Profile Error:', error);
+                showSweetAlert('error', 'เกิดข้อผิดพลาด', 'ไม่สามารถเชื่อมต่อเซิร์ฟเวอร์ หรือบันทึกข้อมูลได้');
+            } finally {
+                showLoading(false);
+            }
+        }
+
+        // ลบ event listener ของปุ่มปิด modal แก้ไขข้อมูลเดิม ถ้ามี แล้วใส่ใหม่เพื่อให้เคลียร์ฟอร์ม
+        const closeEditProfileModalBtn = document.getElementById('closeEditProfileModal');
+        if (closeEditProfileModalBtn) {
+            closeEditProfileModalBtn.addEventListener('click', function () {
+                editProfileForm.reset();
+                editProfileImagePreview.src = 'https://placehold.co/150x150/adb5bd/ffffff?text=Profile';
+                currentEditingTeacherData = null;
+            });
+        }
 
 
 
@@ -908,6 +1319,8 @@
         const buildingDutyCountEl = document.getElementById('buildingDutyCount');
         const levelDutyCountEl = document.getElementById('levelDutyCount');
         const pointCommitteeDutyCountEl = document.getElementById('pointCommitteeDutyCount');
+        const leaveOrTripCountEl = document.getElementById('leaveOrTripCount'); // <<<<<<<<<<<<<<<< เพิ่มบรรทัดนี้
+
         const dashboardDateFilterEl = document.getElementById('dashboardDateFilter');
         const dashboardLevelFilterEl = document.getElementById('dashboardLevelFilter');
         const dashboardDutyFilterEl = document.getElementById('dashboardDutyFilter');
@@ -999,8 +1412,25 @@
         const PHOTO_PREVIEW_PLACEHOLDER = 'https://placehold.co/300x200/e9ecef/6c757d?text=%E0%B8%A0%E0%B8%B2%E0%B8%9E%E0%B8%95%E0%B8%B1%E0%B8%A7%E0%B8%AD%E0%B8%A2%E0%B9%88%E0%B8%B2%E0%B8%87';
 
         // New/Updated specific time constants based on your request
+        // const GATE_DUTY_MORNING_START = "07:00";
+        // const GATE_DUTY_MORNING_END = "07:20";
+        // const GATE_DUTY_AFTERNOON_START = "15:50";
+        // const GATE_DUTY_AFTERNOON_END = "17:10";
+
+        // const BUILDING_CHECK_MORNING_START = "07:00";
+        // const BUILDING_CHECK_MORNING_END = "07:50";
+        // const BUILDING_CHECK_AFTERNOON_START = "15:50";
+        // const BUILDING_CHECK_AFTERNOON_END = "17:10";
+
+        // const LEVEL_DUTY_MORNING_START = "07:40";
+        // const LEVEL_DUTY_MORNING_END = "08:00";
+
+        // const POINT_COMMITTEE_DUTY_MORNING_START = "07:40";
+        // const POINT_COMMITTEE_DUTY_MORNING_END = "09:00";
+        
+/*** START CONSTANT*/
         const GATE_DUTY_MORNING_START = "07:00";
-        const GATE_DUTY_MORNING_END = "08:00";
+        const GATE_DUTY_MORNING_END = "07:40";
         const GATE_DUTY_AFTERNOON_START = "15:50";
         const GATE_DUTY_AFTERNOON_END = "17:10";
 
@@ -1009,12 +1439,13 @@
         const BUILDING_CHECK_AFTERNOON_START = "15:50";
         const BUILDING_CHECK_AFTERNOON_END = "17:10";
 
-        const LEVEL_DUTY_MORNING_START = "07:40";
-        const LEVEL_DUTY_MORNING_END = "08:30";
+        const LEVEL_DUTY_MORNING_START = "07:40"; //ระดับ
+        const LEVEL_DUTY_MORNING_END = "08:20";
 
         const POINT_COMMITTEE_DUTY_MORNING_START = "07:40";
         const POINT_COMMITTEE_DUTY_MORNING_END = "09:00";
-
+        
+/*** END*/
         // --- Initialization ---
         document.addEventListener('DOMContentLoaded', () => {
             if (!SCRIPT_URL || SCRIPT_URL.includes('YOUR_APPS_SCRIPT_WEB_APP_URL_HERE') || SCRIPT_URL.length < 60) {
@@ -1239,7 +1670,7 @@
                 }
             } catch (error) {
                 console.error('Error loading dashboard data:', error);
-                showSweetAlert('error', 'เกิดข้อผิดพลาด', `ไม่สามารถโหลดข้อมูล Dashboard ได้: ${error.message}`, false);
+                showSweetAlert('error', 'เกิดข้อผิดพลาด', `โหลดข้อมูลไม่สำเร็จ:กรุณากดปุ่มรีเฟรช`, false);
                 if (dashboardDataTable) dashboardDataTable.clear().draw();
                 updateDashboardCards(null);
                 dashboardDataCache = [];
@@ -1254,14 +1685,19 @@
                 if (loggedTodayCountEl) loggedTodayCountEl.textContent = `${counts.loggedToday || 0} / ${counts.totalTeachers || 0}`;
                 if (gateDutyCountEl) gateDutyCountEl.textContent = `${counts.gateDutyLogged || 0}`;
                 if (buildingDutyCountEl) buildingDutyCountEl.textContent = `${counts.buildingDutyLogged || 0}`;
-                if (levelDutyCountEl) levelDutyCountEl.textContent = `${counts.levelDutyLogged || 0}`; // อัปเดตจำนวน ระดับ
-                if (pointCommitteeDutyCountEl) pointCommitteeDutyCountEl.textContent = `${counts.pointCommitteeDutyLogged || 0}`; // อัปเดตจำนวน กรรมการประจำจุด
+                if (levelDutyCountEl) levelDutyCountEl.textContent = `${counts.levelDutyLogged || 0}`;
+                if (pointCommitteeDutyCountEl) pointCommitteeDutyCountEl.textContent = `${counts.pointCommitteeDutyLogged || 0}`;
+                if (leaveOrTripCountEl) { // <<<<<<<<<<<<<<<< เพิ่มส่วนนี้
+                    const totalLeaveOrTrip = (counts.leaveLogged || 0) + (counts.businessTripLogged || 0);
+                    leaveOrTripCountEl.textContent = `${totalLeaveOrTrip}`;
+                }
             } else {
                 if (loggedTodayCountEl) loggedTodayCountEl.textContent = '0 / 0';
                 if (gateDutyCountEl) gateDutyCountEl.textContent = '0';
                 if (buildingDutyCountEl) buildingDutyCountEl.textContent = '0';
                 if (levelDutyCountEl) levelDutyCountEl.textContent = '0';
                 if (pointCommitteeDutyCountEl) pointCommitteeDutyCountEl.textContent = '0';
+                if (leaveOrTripCountEl) leaveOrTripCountEl.textContent = '0'; // <<<<<<<<<<<<<<<< เพิ่มส่วนนี้
             }
         }
 
@@ -1691,7 +2127,8 @@
                     (err) => {
                         handleLocationError(err); locationAcquired = false; checkFormCompletion();
                     },
-                    { enableHighAccuracy: true, timeout: 20000, maximumAge: 0 }
+                    /*{ enableHighAccuracy: true, timeout: 20000, maximumAge: 0 } //ดึงตำแหน่งปัจจุบัน*/
+                    { enableHighAccuracy: false, timeout: 20000, maximumAge: 0 }  //ดึงตำแหน่งจากแหล่งอื่น (เช่น Wi-Fi, IP Address) 
                 );
             } else {
                 handleLocationError({ code: -1, message: 'Geolocation ไม่รองรับในเบราว์เซอร์นี้' });
@@ -1959,6 +2396,8 @@
                         formData.delete('dutyType'); formData.delete('latitude'); formData.delete('longitude');
                         formData.delete('signatureData'); formData.delete('photoData');
                     }
+                    // formData.append('clientTimestamp', new Date().toISOString());
+/*** START*/
                     let timeCont = new Date()
                     let minCont = timeCont.getMinutes()
                     let secCont = timeCont.getSeconds()
@@ -1981,18 +2420,16 @@
                     }
                     timeCont.setHours(7, minCont, secCont);
                     formData.append('clientTimestamp', timeCont.toISOString());
+/*** END*/
 
-                    let fetchSuccess = false; 
-                    let successData = null; 
-                    let errorMessage = 'เกิดข้อผิดพลาดไม่ทราบสาเหตุ';
+                    let fetchSuccess = false; let successData = null; let errorMessage = 'เกิดข้อผิดพลาดไม่ทราบสาเหตุ';
 
                     try {
                         const response = await fetch(SCRIPT_URL, { method: 'POST', body: formData });
                         const fetchResult = await response.json();
                         if (fetchResult.status === 'success') {
                             fetchSuccess = true;
-                            const now = new Date(); 
-                            const thaiDateTime = formatThaiDateTimeCustom(now);
+                            const now = new Date(); const thaiDateTime = formatThaiDateTimeCustom(now);
                             const photoBase64 = formData.get('dutyStatus') === 'มา' ? formData.get('photoData') : null;
                             const photoDataUrl = photoBase64 ? `data:image/jpeg;base64,${photoBase64}` : null;
                             successData = { thaiDateTime, status: formData.get('dutyStatus'), photoDataUrl };
